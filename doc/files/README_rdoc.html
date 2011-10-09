@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: README.rdoc</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>README.rdoc</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>README.rdoc
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Thu Dec 23 11:26:34 -0600 2010</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <h1>EdgeCase Ruby Koans</h1>
+<p>
+The Ruby Koans walk you along the path to enlightenment in order to learn
+Ruby. The goal is to learn the Ruby language, syntax, structure, and some
+common functions and libraries. We also teach you culture. Testing is not
+just something we pay lip service to, but something we live. It is
+essential in your quest to learn and do great things in the language.
+</p>
+<h2>The Structure</h2>
+<p>
+The koans are broken out into areas by file, hashes are covered in
+about_hashes.rb, modules are introduced in about_modules.rb, etc. They are
+presented in order in the path_to_enlightenment.rb file.
+</p>
+<p>
+Each koan builds up your knowledge of Ruby and builds upon itself. It will
+stop at the first place you need to correct.
+</p>
+<p>
+Some koans simply need to have the correct answer substituted for an
+incorrect one. Some, however, require you to supply your own answer. If you
+see the method <tt>__</tt> (a double underscore) listed, it is a hint to
+you to supply your own code in order to make it work correctly.
+</p>
+<h2>Installing Ruby</h2>
+<p>
+If you do not have Ruby setup, please visit <a
+href="http://ruby-lang.org/en/downloads">ruby-lang.org/en/downloads</a>/
+for operating specific instructions. In order to run this you need ruby and
+rake installed. To check the installations simply type:
+</p>
+<p>
+*nix platforms from any terminal window:
+</p>
+<pre>
+   [~] $ ruby --version
+   [~] $ rake --version
+</pre>
+<p>
+Windows from the command prompt (cmd.exe)
+</p>
+<pre>
+   c:\ruby --version
+   c:\rake --version
+</pre>
+<p>
+Any response for Ruby with a version number greater than 1.8 is fine
+(should be around 1.8.6 or more). Any version of rake will do.
+</p>
+<h2>The Path To Enlightenment</h2>
+<p>
+You can run the tests through rake or by calling the file itself (rake is
+the recommended way to run them as we might build more functionality into
+this task).
+</p>
+<p>
+*nix platforms, from the koans directory
+</p>
+<pre>
+    [ruby_koans] $ rake                           # runs the default target :walk_the_path
+    [ruby_koans] $ ruby path_to_enlightenment.rb  # simply call the file directly
+</pre>
+<p>
+Windows is the same thing
+</p>
+<pre>
+    c:\ruby_koans\rake                             # runs the default target :walk_the_path
+    c:\ruby_koans\ruby path_to_enlightenment.rb    # simply call the file directly
+</pre>
+<h3>Red, Green, Refactor</h3>
+<p>
+In test-driven development the mantra has always been, red, green,
+refactor. Write a failing test and run it (red), make the test pass
+(green), then refactor it (that is look at the code and see if you can make
+it any better. In this case you will need to run the koan and see it fail
+(red), make the test pass (green), then take a moment and reflect upon the
+test to see what it is teaching you and improve the code to better
+communicate its intent (refactor).
+</p>
+<p>
+The very first time you run it you will see the following output:
+</p>
+<pre>
+    [ ruby_koans ] $ rake
+    (in /Users/person/dev/ruby_koans)
+    cd koans
+
+    Thinking AboutAsserts
+      test_assert_truth has damaged your karma.
+
+    You have not yet reached enlightenment ...
+    &lt;false&gt; is not true.
+
+    Please meditate on the following code:
+    ./about_asserts.rb:10:in `test_assert_truth'
+    path_to_enlightenment.rb:27
+
+    mountains are merely mountains
+</pre>
+<p>
+You have come to your first stage. If you notice it is telling you where to
+look for the first solution:
+</p>
+<pre>
+    Please meditate on the following code:
+    ./about_asserts.rb:10:in `test_assert_truth'
+    path_to_enlightenment.rb:27
+</pre>
+<p>
+We then open up the about_asserts.rb file and look at the first test:
+</p>
+<pre>
+    # We shall contemplate truth by testing reality, via asserts.
+    def test_assert_truth
+      assert false                # This should be true
+    end
+</pre>
+<p>
+We then change the <tt>false</tt> to <tt>true</tt> and run the test again.
+After you are done, think about what you are learning. In this case, ignore
+everything except the method name (<tt>test_assert_truth</tt>) and the
+parts inside the method (everything before the <tt>end</tt>).
+</p>
+<p>
+In this case the goal is for you to see that if you pass a value to the
+<tt>assert</tt> method, it will either ensure it is <tt>true</tt> and
+continue on, or fail if in fact the statement is <tt>false</tt>.
+</p>
+<h2>Inspiration</h2>
+<p>
+A special thanks to Mike Clark and Ara Howard for inspiring this project.
+Mike Clark wrote an excellent blog post about learning Ruby through unit
+testing. This sparked an idea that has taken a bit to solidify, that of
+bringing new rubyists into the community through testing. Ara Howard then
+gave us the idea for the Koans in his ruby quiz entry on Meta Koans (a must
+for any rubyist wanting to improve their skills). Also, &quot;The Little
+Lisper&quot; taught us all the value of the short questions/simple answers
+style of learning.
+</p>
+<table>
+<tr><td valign="top">Mike Clark&#8216;s post :</td><td><a
+href="http://www.clarkware.com/cgi/blosxom/2005/03/18">www.clarkware.com/cgi/blosxom/2005/03/18</a>
+
+</td></tr>
+<tr><td valign="top">Meta Koans        :</td><td><a href="http://rubyquiz.com/quiz67.html">rubyquiz.com/quiz67.html</a>
+
+</td></tr>
+<tr><td valign="top">The Little Lisper :</td><td><a
+href="http://www.amazon.com/Little-LISPer-Third-Daniel-Friedman/dp/0023397632">www.amazon.com/Little-LISPer-Third-Daniel-Friedman/dp/0023397632</a>
+
+</td></tr>
+</table>
+<h2>Other Resources</h2>
+<table>
+<tr><td valign="top">The Ruby Language               :</td><td><a href="http://ruby-lang.org">ruby-lang.org</a>
+
+</td></tr>
+<tr><td valign="top">Try Ruby in your browser        :</td><td><a href="http://tryruby.org">tryruby.org</a>
+
+</td></tr>
+<tr><td valign="top">Dave Thomas&#8217; introduction to Ruby Programming Ruby (the Pick Axe) :</td><td><a
+href="http://pragprog.com/titles/ruby/programming-ruby">pragprog.com/titles/ruby/programming-ruby</a>
+
+</td></tr>
+<tr><td valign="top">Brian Marick&#8216;s fantastic guide for beginners Everyday Scripting with Ruby    :</td><td><a
+href="http://pragprog.com/titles/bmsft/everyday-scripting-with-ruby">pragprog.com/titles/bmsft/everyday-scripting-with-ruby</a>
+
+</td></tr>
+</table>
+<h1>Other stuff</h1>
+<table>
+<tr><td valign="top">Author         :</td><td>Jim Weirich &lt;jim@weirichhouse.org&gt;
+
+</td></tr>
+<tr><td valign="top">Author         :</td><td>Joe O&#8216;Brien &lt;joe@edgecase.com&gt;
+
+</td></tr>
+<tr><td valign="top">Issue Tracker  :</td><td><a
+href="http://www.pivotaltracker.com/projects/48111">www.pivotaltracker.com/projects/48111</a>
+
+</td></tr>
+<tr><td valign="top">Requires       :</td><td>Ruby 1.8.x or later and Rake (any recent version)
+
+</td></tr>
+</table>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>
