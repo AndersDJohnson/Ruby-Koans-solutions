@@ -1,8 +1,9 @@
 = Ruby Koans solutions
 
+<b>NOTE: This is very old, and I didn't know Ruby well at the time.</b>
+
 My solutions to [Ruby Koans from Edgecase](http://rubykoans.com/).
 
->
  The Ruby Koans walk you along the path to enlightenment in order to learn Ruby.
  The goal is to learn the Ruby language, syntax, structure, and some common
  functions and libraries. We also teach you culture. Testing is not just something we
